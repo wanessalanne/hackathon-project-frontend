@@ -40,7 +40,7 @@ document.getElementById("fileInput").addEventListener("change", function () {
 // Event listener para enviar o formulário
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    const url = 'http://localhost:1337/api/reports';
+    const url = 'https://cb53htunpi.us-east-2.awsapprunner.com/api/reports';
     const data = {
         "data": {
             "playerReported": document.getElementById("playerReported").value,
@@ -84,7 +84,7 @@ fetch(url, requestOptions)
         redirect: "follow"
         };
 
-        fetch("http://localhost:1337/api/upload", requestOptions)
+        fetch("https://cb53htunpi.us-east-2.awsapprunner.com/api/upload", requestOptions)
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));        
