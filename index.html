@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="RecordRTC" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <title>Hackathon</title>
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="background-image">
+      <div class="content">
+        <button id="openModalBtn" class="button">DENUNCIAR</button>
+      </div>
+    </div>
+
+    <div class="button-container">
+        <button class="icon-button" id="startRecording"><img src="./assets/videocamOn.svg" alt="Iniciar Gravação"></button>
+        <button class="icon-button" id="stopRecording" disabled><img src="./assets/videocamOff.svg" alt="Parar Gravação"></button>
+    </div>
+
+    <div id="modal-form" class="modal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Formulário de denúncia</h2>
+        <form id="inputForm">
+          <div class="input-select-button-container">
+            <select id="playerReported" name="playerReported" required>
+              <option value="" disabled selected>Selecione o jogador</option>
+              <option value="Player 1">Player 1</option>
+              <option value="Player 2">Player 2</option>
+              <option value="Player 3">Player 3</option>
+              <option value="Player 4">Player 4</option>
+              <option value="Player 5">Player 5</option>
+            </select>
+          </div>
+          <div class="input-select-button-container">
+            <select id="typeReported" name="typeReported" required>
+              <option value="" disabled selected>
+                Selecione o tipo de denúncia
+              </option>
+              <option value="Assédio">Assédio</option>
+              <option value="Trapaça">Trapaça</option>
+              <option value="Outros">Outros</option>
+            </select>
+            <input
+              type="text"
+              id="otherTypeReported"
+              name="otherTypeReported"
+              placeholder="Descreva o tipo de denúncia"
+              style="display: none"
+            />
+          </div>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Descrição da ocorrência*"
+            class="form-textarea"
+            required
+          ></textarea>
+          <div class="send-file-button-container">
+            <button
+              type="button"
+              class="send-file-button"
+              onclick="document.getElementById('fileInput').click()"
+            >
+              ANEXAR PROVAS
+            </button>
+            <input
+              type="file"
+              id="fileInput"
+              name="fileInput"
+              class="file-input"
+              style="display: none"
+            />
+          </div>
+          <button type="submit" class="submit-button">ENVIAR DENÚNCIA</button>
+        </form>
+        <div id="modalSucess" class="modal-sucess">
+          <p>Agradecemos seu contato!</p>
+          <p>
+            Sua denúncia será analisada e lhe informaremos sobre o andamento
+            deste processo.
+          </p>
+          <button id="returnBtn" class="button">Retornar ao jogo</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+  </body>
+</html>
